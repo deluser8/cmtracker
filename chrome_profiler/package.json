@@ -1,0 +1,25 @@
+{
+  "name": "chrome-remote-profile",
+  "version": "1.0.0",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/syang2forever/chrome-remote-profile.git"
+  },
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js -P 12345 -W 50 -T 12.5 -I 2 -D ./profiles",
+    "dev": "node app.js"
+  },
+  "author": "syang2forever",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "chrome-launcher": "^0.10.2",
+    "chrome-remote-interface": "^0.25.5",
+    "commander": "^2.13.0",
+    "md5": "^2.2.1",
+    "mysql2": "^1.5.1",
+    "redis": "^2.8.0"
+  }
+}
