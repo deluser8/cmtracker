@@ -1,0 +1,10 @@
+## Usage:
+
+> python profile_tree.py profiler_json_file_or_directory
+> eg. python profile_tree.py profiler_test_case
+> python verify.py profiler_json_file_or_directory
+> eg. python verify.py profiler_test_case
+
+We implement Hash Based Profiler and Stack Structure Based Profiler based on Chrome Profiler Result. 
+
+Besides, there are 200 manully verified cryptocurrency mining samples in the *profiler_test_case* directory, which may be helpful for the further study.
