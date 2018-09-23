@@ -13,7 +13,5 @@ We thank the many contributors to this project and our paper, including Zhiyun Q
 
 We welcome any question about this project, please contact Geng Hong or [Zhemin Yang](https://yangzhemin.github.io/)
 
-Data will be updated soon.
-
 Edited by Zhemin Yang, Sep 21, 2018
 
