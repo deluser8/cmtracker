@@ -5,7 +5,7 @@ const { dbConfig, redisConfig } = require('./config');
 const { formatDateTime } = require('./utils');
 
 class DB {
-    /* 数据库构造函数 */
+    /* constructor of DB */
     constructor({dlimit, rlimit, config}) {
 
         const mysql_config = config || dbConfig;
@@ -21,7 +21,7 @@ class DB {
         this.redisClient = redis.createClient(6379, redisConfig.host);
     }
 
-    /* 关闭数据库连接线程池和 redis 连接 */
+    /* close all connection */
     async close() {
         this.redisClient.quit();
         await this.pool.end();
@@ -38,6 +38,16 @@ class DB {
         }
     }
 
+    /* update */
+    async update(sql) {
+        try {
+            await this.pool.execute(sql);
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
+    /* set up the start flag in database */
     async startProfile({id}) {
         const timestamp = formatDateTime(new Date());
         const sql = `UPDATE \`profilerUrl\` SET status=3, finishTimeStamp="${timestamp}" WHERE id = ${id}`;
@@ -48,7 +58,7 @@ class DB {
         }
     }
 
-    /* 完成 profile 后将数据写回数据库 */
+    /* write back */
     async finishProfile({id, threads, websocket}) {
         const timestamp = formatDateTime(new Date());
         const sql = `UPDATE \`profilerUrl\` SET status=4, threads=${threads}, webSocket=${websocket} ,finishTimeStamp="${timestamp}" WHERE id = ${id}`;
