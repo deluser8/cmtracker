@@ -280,6 +280,9 @@ async function newTab(item, timeout, waitTime) {
 
             await db.finishProfile({id, threads: num + 1, websocket});
 
+            // to ensure all callback function finish
+            await delay(num);
+
             await CDP.Close({
                 host: config.host,
                 port: config.port,
